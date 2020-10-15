@@ -47,9 +47,40 @@ Route::get('/{nome}/{numero}', function($nome,$numero){
 Route::get('/', function () {
     return view('bemvindo');
 });
-           
-           
-           
-           
+
+Route::get('/nomes/{nome}/{apelido}',
+           function($nome=null, $apelido=null){
+                return view('mostranome',[
+                    'nome'=> $nome,
+                    'apelido'=> $apelido
+                ]);
+});
+     
+Route::get('/nomes/{nome}/{apelido}/{numero}',
+           function($nome=null, $apelido=null, $numero=null){
+               return view('mostranomenum',[
+                    'nome'=> $nome,
+                    'apelido'=> $apelido,
+                   'numero'=> $numero
+                ]);
+});           
+    
+Route::get('/tarefas', function(){
+    $tarefas=[
+        'comprar senha',
+        'Imprimir fotocópias',
+        'Carregar cartão'
+    ];
+    return view('tarefas',[
+        'tarefas'=>$tarefas
+    ]);
+});
+
+Route::get('/index','App\Http\Controllers\PortalController@index');
+
+Route::get('/equipas','App\Http\Controllers\PortalController@listarEquipas');
+
+
+
            
            
