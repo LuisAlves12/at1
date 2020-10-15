@@ -21,7 +21,7 @@ Route::get('/bem-vindo', function (){
     echo('Olá Mundo');
 });
 
-Route::get('/', function (){
+Route::get('/a', function (){
     echo('<h1> Olá mundo!</h1>');
 });
 
@@ -44,6 +44,9 @@ Route::get('/{nome}/{numero}', function($nome,$numero){
     }
 });
 
+Route::get('/', function () {
+    return view('bemvindo');
+});
            
            
            
