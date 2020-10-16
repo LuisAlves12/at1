@@ -1,3 +1,9 @@
-@foreach ($equipa as $equipas)
-    <h3>{{$equipas}}</h3>
-@endforeach
+@if(isset($equipas))
+    @foreach ($equipas as $equipa)
+        <h3>{{$equipa}}</h3>
+    @endforeach
+@else
+        <h1>{{$equipa}}</h1>
+@endif
+
+

@@ -37,7 +37,7 @@ Route::get('/nome/{nome}/{apelido}',function($nome,$apelido){
    echo('<h1> Olá '.$nome.' '.$apelido.'</h1>');
 });
 
-Route::get('/{nome}/{numero}', function($nome,$numero){
+Route::get('/name/{nome}/{numero}', function($nome,$numero){
     $numero=is_numeric($numero)?$numero:5;
     for($i=0; $i<$numero; $i++){
         echo($nome. '<br> ');
@@ -80,7 +80,7 @@ Route::get('/index','App\Http\Controllers\PortalController@index');
 
 Route::get('/equipas','App\Http\Controllers\PortalController@listarEquipas');
 
-
+Route::get('/equipas/{chave}','App\Http\Controllers\PortalController@listarEquipa');
 
            
            
