@@ -15,7 +15,7 @@ class PortalController extends Controller
     ];
     //
     public function index(){
-        return view('entrada');
+        return view('layout');
     }
     
     /*public function listarEquipas(){
@@ -47,5 +47,21 @@ class PortalController extends Controller
         else{
             return view('equipas', ['equipas'=>$this->equipas]);
         }
+    }
+
+    public function mostrarForm(){
+        return view('contacto');
+    }
+
+    public function processarForm (Request $request){
+        $nome=$request->nome;
+        $morada=$request->morada;
+        $automovel=$request->automovel;
+
+        return view('form-enviado', [
+            'nome'=>$nome,
+            'morada'=>$morada,
+            'automovel'=>$automovel
+        ]);
     }
 }

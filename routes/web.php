@@ -44,7 +44,7 @@ Route::get('/name/{nome}/{numero}', function($nome,$numero){
     }
 });
 
-Route::get('/', function () {
+Route::get('/b', function () {
     return view('bemvindo');
 });
 
@@ -80,6 +80,17 @@ Route::get('/index','App\Http\Controllers\PortalController@index');
 
 Route::get('/equipas/{chave}/{nome?}','App\Http\Controllers\PortalController@listarEquipa');
 
+Route::get('/', 'App\Http\Controllers\PortalController@index')
+    ->name('equipas.index');
 
-           
-           
+Route::get('/listar-equipa', 'App\Http\Controllers\PortalController@listarEquipa')
+    ->name('equipas.lista');
+
+Route::get('/lista','App\Http\Controllers\PortalController@listarEquipa')
+    ->name('equipas.1'); 
+    
+Route::get('/contactos','App\Http\Controllers\PortalController@mostrarForm')
+    ->name('mostrar.form');
+
+Route::post('/contactos','App\Http\Controllers\PortalController@processarForm')
+    ->name('processar.form');
